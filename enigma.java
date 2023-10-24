@@ -23,8 +23,6 @@ class enigma
 
                 }
 
-                if
-
                 System.out.println(charValue);
 
                 charValue=rotorScramble(charValue);
@@ -69,10 +67,7 @@ class enigma
     public static char rotorScramble(char c)
     {
         count++;
-        if(count%5 == 0)
-        {
-           ringSelect();
-        }
+        ringSelect();
         int x=0;
         switch(c)
         {
