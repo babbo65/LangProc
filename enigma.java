@@ -1,45 +1,98 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
-public class CharacterReader 
+class enigma
 {
-    int count=0;
-    String rotor="bdeac";
-    public static void main(String[] args) 
+    public static int count=0;                  //variable is refrenced in main methed, must be static
+    public static String rotor="bdeac";                //default rotor
+    public static void main(String args[]) 
     {
-        String fileName = "your_text_file.txt"; // txt file wil message, alphabet = "abcde" 
+        String input = "input.txt";                              // txt file with message, alphabet = "abcde" 
+        File output = new File("output.txt");
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            BufferedReader reader = new BufferedReader(new FileReader(input));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(output));
             int character;
-
-            while ((character = reader.read()) != -1) {
+            while ((character = reader.read()) != -1) {  //ACCOUNT FOR SPACES!!!
                 char charValue = (char) character;
 
-                //scramble method
+                try{
+                    charValue=plugBoard(charValue);
+                }
+                catch(Exception e)
+                {
 
-                System.out.print(charValue); // instead of print, add to new txt file
+                }
+
+                if
+
+                System.out.println(charValue);
+
+                charValue=rotorScramble(charValue);
+                System.out.println(charValue);
+
+
+                if(count%5 == 0)                      //formats and outputs characters into file
+                    writer.write(" ");
+                if(count%20 == 0)
+                    writer.write("\n");
+
+                System.out.println(charValue);
+                writer.write(charValue);
+        
             }
 
             reader.close();
+            writer.close();
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
     }
-    public char plugBorad(char c)
+    public static char plugBoard(char c) throws Exception
     {
         String s = "adcbe";
-        switch
+        switch(c)
+        {
+            case 'a':
+                return 'a';
+            case 'b':
+                return 'd';
+            case 'c':
+                return 'c';
+            case 'd':
+                return 'b';
+            case 'e':
+                return 'e';
+            default:
+                throw new Exception();
+        }
     }
-    public char rotor(char c)
+    public static char rotorScramble(char c)
     {
-    
-    }
-    public void ringSelect()
-    {
+        count++;
         if(count%5 == 0)
         {
-            //reconfig rotor by one
+           ringSelect();
         }
+        int x=0;
+        switch(c)
+        {
+            case 'a':
+                x=0;
+            case 'b':
+                x=1;;
+            case 'c':
+                x=2;
+            case 'd':
+                x=3;
+            case 'e':
+                x=4;
+        }
+        return rotor.charAt(x);
+    }
+    public static void ringSelect()
+    {
+        String s="";
+        s=s+rotor.charAt(1)+rotor.charAt(2)+rotor.charAt(3)+rotor.charAt(4)+rotor.charAt(0);
+        rotor=s;
     }
 }
