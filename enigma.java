@@ -3,7 +3,7 @@ import java.io.*;
 class enigma
 {
     public static int count=0;                  //variable is refrenced in main methed, must be static
-    public static String rotor="bdeac";                //default rotor
+    public static String rotor="bdeacf";                //default rotor
     public static void main(String args[]) 
     {
         String input = "input.txt";                              // txt file with message, alphabet = "abcde" 
@@ -47,18 +47,20 @@ class enigma
     }
     public static char plugBoard(char c) throws Exception
     {
-        String s = "adcbe";
+        //String s = "fadcbe";
         switch(c)
         {
             case 'a':
-                return 'a';
+                return 'f';
             case 'b':
-                return 'd';
+                return 'a';
             case 'c':
-                return 'c';
+                return 'd';
             case 'd':
-                return 'b';
+                return 'c';
             case 'e':
+                return 'b';
+            case 'f':
                 return 'e';
             default:
                 throw new Exception();
@@ -81,13 +83,15 @@ class enigma
                 x=3;
             case 'e':
                 x=4;
+            case 'f':
+                x=5;
         }
         return rotor.charAt(x);
     }
     public static void ringSelect()
     {
         String s="";
-        s=s+rotor.charAt(1)+rotor.charAt(2)+rotor.charAt(3)+rotor.charAt(4)+rotor.charAt(0);
+        s=s+rotor.charAt(1)+rotor.charAt(2)+rotor.charAt(3)+rotor.charAt(4)+rotor.charAt(5)+rotor.charAt(0);
         rotor=s;
     }
 }
