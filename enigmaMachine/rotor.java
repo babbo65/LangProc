@@ -1,5 +1,5 @@
 //package enigmaMachine;
-
+//testing
 public class rotor
 {
     private char[] forward={'B', 'F', 'A', 'E', 'D', 'C'};
