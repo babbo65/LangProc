@@ -1,4 +1,4 @@
-package enigmaMachine;
+//package enigmaMachine;
 
 public class rotor
 {
@@ -10,7 +10,7 @@ public class rotor
     {
 
     }
-    public char incode(char c)
+    public char encode(char c)
     {
         for(int i=0; i<=forward.length; i++)
         {
