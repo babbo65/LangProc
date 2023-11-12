@@ -1,4 +1,4 @@
-import enigmaMachine.*;
+//import enigmaMachine.*;
 
 class Main
 {
@@ -9,7 +9,7 @@ class Main
         reflector reflect=new reflector(r1, plug);
         enigma machine=new enigma(reflect, r1, plug);
 
-        char c=machine.encrypt('A');
-        System.out.println(c);
+        char c=machine.encrypt('E');
+        System.out.println(" final "+c);
     }
 }

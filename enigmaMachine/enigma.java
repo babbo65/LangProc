@@ -17,9 +17,12 @@ public class enigma
 
     public char encrypt(char c)
     {
+        System.out.print("start "+c+"->");
         rotate();
         c=plug.forward(c);
+        System.out.print(" plug for "+c+"->");
         c=r1.encode(c);
+        System.out.print(" rotor "+c+"->");
         c=reflect.back(c);
 
         return c;

@@ -2,7 +2,7 @@
 
 public class reflector
 {
-    protected int[] forwardWiring={'B', 'A', 'E', 'C', 'F', 'D'};
+    protected char[] forwardWiring={'B', 'A', 'E', 'C', 'F', 'D'};
     public rotor r1; 
     public plugboard plug;
 
@@ -15,8 +15,15 @@ public class reflector
     {
         int x=(int)c-65;
         c=forwardWiring[x];
+        System.out.print(" reflect "+c+"->");
         c=r1.back(c);
-        c=plug.backwards(c);
+        System.out.print(" rotor reflect "+c+"->");
+        try {
+           c=plug.backwards(c);
+        } catch (Exception e) {
+          
+        }
+        //c=plug.backwards(c);
         return c;
     }
 }

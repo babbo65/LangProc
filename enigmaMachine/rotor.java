@@ -1,5 +1,5 @@
 //package enigmaMachine;
-//testing
+
 public class rotor
 {
     private char[] forward={'B', 'F', 'A', 'E', 'D', 'C'};
@@ -12,16 +12,16 @@ public class rotor
     }
     public char encode(char c)
     {
-        for(int i=0; i<=forward.length; i++)
+        for(int i=0; i<=forward.length-1; i++)
         {
             if(c == forward[i])
-                c=backward[i];
+                return backward[i];
         }
-        return c;
+        return 'X';
     }
     public char back(char c)
     {
-        for(int i=0; i<=backward.length; i++)
+        for(int i=0; i<=backward.length-1; i++)
         {
             if(c == backward[i])
                 c=forward[i];
@@ -32,9 +32,13 @@ public class rotor
     {
         char[] temp= new char[backward.length];
         temp[0]=backward[backward.length-1];
-        for(int i=0; i<=backward.length; i++)
+        for(int i=1; i<=backward.length-1; i++)
         {
-            temp[i+1]=backward[i];
+            temp[i]=backward[i-1];
+        }
+        for(int i=0; i<=backward.length-1; i++)
+        {
+            backward[i]=temp[i];
         }
     }
 }
