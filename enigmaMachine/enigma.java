@@ -4,25 +4,34 @@ public class enigma
 {
     public reflector reflect;
     public rotor r1;
+    public rotor r2;
+    public rotor r3;
     public plugboard plug;
+    private int count;
 
     // A B C D E F
     // 0 1 2 3 4 5
-    public enigma(reflector reflect, rotor r1, plugboard plug)
+    public enigma(reflector reflect, rotor r1, rotor r2, rotor r3, plugboard plug)
     {
         this.reflect=reflect;
         this.plug=plug;
         this.r1=r1;
+        this.r2=r2;
+        this.r3=r3;
     }
 
     public char encrypt(char c)
     {
-        System.out.print("start "+c+"->");
+        System.out.print("start "+c+"->");  //prints steps for debugging
         rotate();
         c=plug.forward(c);
-        System.out.print(" plug for "+c+"->");
+        System.out.print(" plug forw "+c+"->");
         c=r1.encode(c);
-        System.out.print(" rotor "+c+"->");
+        System.out.print(" r1 "+c+"->");
+        c=r2.encode(c);
+        System.out.print(" r2 "+c+"->");
+        c=r3.encode(c);
+        System.out.print(" r3 "+c+"->");
         c=reflect.back(c);
 
         return c;
@@ -30,5 +39,14 @@ public class enigma
     public void rotate()
     {
         r1.tick();
+        count++;
+        if(count%6==0)
+        {
+            r2.tick();
+        }
+        if(count%36==0)
+        {
+            r3.tick();
+        }
     }
 }

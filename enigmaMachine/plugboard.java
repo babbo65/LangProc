@@ -2,7 +2,7 @@
 
 public class plugboard
 {
-    private char[] wiring={'B', 'D', 'F', 'A', 'C', 'E'};   //static plugboard, to make things easy
+    private char[] wiring={'B', 'A', 'F', 'E', 'D', 'C'};   //static plugboard, to make things easy
     // backwards is         A    B    C    D    E    F
     public plugboard()
     {
@@ -15,22 +15,25 @@ public class plugboard
     }
     public char backwards(char c)throws Exception
     {
-        switch(c)
+        /*switch(c)
         {
+            case 'A':
+                return 'B';
             case 'B':
                 return 'A';
-            case 'D':
-                return 'B';
-            case 'F':
-                return 'C';
-            case 'A':
-                return 'D';
             case 'C':
+                return 'F';
+            case 'D':
                 return 'E';
             case 'E':
-                return 'F';
+                return 'D';
+            case 'F':
+                return 'C';
             default:
                 throw new Exception();
-        }
+        }*/
+        
+        int x=(int)c-65; //converts ASCII to index
+        return wiring[x];
     }
 }
