@@ -5,7 +5,8 @@ class Main
     public static void main(String args[])
     {
         plugboard plug=new plugboard();
-
+        
+        //rotor settings entered here
                         //A    B    C    D    E    F
         char[] forward1={'B', 'F', 'A', 'E', 'D', 'C'};
 
