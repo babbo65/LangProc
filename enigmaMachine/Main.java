@@ -8,18 +8,12 @@ class Main
 
                         //A    B    C    D    E    F
         char[] forward1={'B', 'F', 'A', 'E', 'D', 'C'};
-        //char[] backward1={'C', 'A', 'F', 'E', 'D', 'B'};
-                        //A    B    C    D    E    F
 
                         //A    B    C    D    E    F
         char[] forward2={'C', 'D', 'B', 'F', 'A', 'E'};
-        //char[] backward2={'E', 'C', 'A', 'B', 'F', 'D'};
-                        //A    B    C    D    E    F
 
                         //A    B    C    D    E    F
         char[] forward3={'F', 'D', 'B', 'C', 'A', 'E'};
-        //char[] backward3={'E', 'C', 'D', 'B', 'F', 'A'};
-                        //A    B    C    D    E    F
 
         rotor r1=new rotor(forward1);
         rotor r2=new rotor(forward2);
@@ -27,12 +21,20 @@ class Main
         reflector reflect=new reflector(r1, r2, r3, plug);
         enigma machine=new enigma(reflect, r1, r2, r3, plug);
 
+
+        //make encryptions here \/ \/ \/
         char c=machine.encrypt('C');    // FACADE -> CDFDAF
+        System.out.println();
         char d=machine.encrypt('D');
+        System.out.println();
         char e=machine.encrypt('F');
+        System.out.println();
         char f=machine.encrypt('D');
+        System.out.println();
         char g=machine.encrypt('A');
+        System.out.println();
         char h=machine.encrypt('F');
+        System.out.println();
         System.out.println(" final "+c+d+e+f+g+h);//prints sequence of steps for debugging
     }
 }

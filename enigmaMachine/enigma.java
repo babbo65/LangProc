@@ -8,9 +8,6 @@ public class enigma
     public rotor r3;
     public plugboard plug;
     private int count;
-
-    // A B C D E F
-    // 0 1 2 3 4 5
     public enigma(reflector reflect, rotor r1, rotor r2, rotor r3, plugboard plug)
     {
         this.reflect=reflect;
@@ -19,11 +16,10 @@ public class enigma
         this.r2=r2;
         this.r3=r3;
     }
-
     public char encrypt(char c)
     {
-        System.out.print("start "+c+"->");  //prints steps for debugging
-        rotate();
+        System.out.print("start "+c+"->");  //prints steps for debugging and understanding
+        rotate();                           //rotates rotor one key is pressed then send electrical signal 
         c=plug.forward(c);
         System.out.print(" plug forw "+c+"->");
         c=r1.encode(c);
@@ -40,8 +36,8 @@ public class enigma
     {
         r1.tick();
         count++;
-        if(count%6==0)
-        {
+        if(count%6==0)      //rotates second rotor after first makes a full rotation, and on fourth 
+        {                   //kind of like gear ratios, 6 rotations = 1 in this case (6:1)
             r2.tick();
         }
         if(count%36==0)

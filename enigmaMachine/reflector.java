@@ -8,7 +8,7 @@ public class reflector
     public rotor r3;
     public plugboard plug;
 
-    public reflector(rotor r1, rotor r2, rotor r3, plugboard plug)
+    public reflector(rotor r1, rotor r2, rotor r3, plugboard plug)  //reflector uses rotors and plugboard objects to make backwards calls
     {
         this.r1=r1;
         this.r2=r2;
@@ -19,19 +19,14 @@ public class reflector
     {
         int x=(int)c-65;
         c=forwardWiring[x];
-        System.out.print(" reflect "+c+"->");
+        System.out.print(" reflect "+c+"->");   //maps out for debugging and understanding
         c=r3.back(c);
         System.out.print(" r3 reflect "+c+"->");
         c=r2.back(c);
         System.out.print(" r2 reflect "+c+"->");
         c=r1.back(c);
-        System.out.print(" r1 reflect "+c+"->");
-        try {
-           c=plug.backwards(c);
-        } catch (Exception e) {
-          
-        }
-        //c=plug.backwards(c);
+        System.out.print(" r reflect "+c+"->");
+        c=plug.forward(c);
         return c;
     }
 }
