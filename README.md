@@ -1,1 +1,1 @@
-Java implementation of the Enigma Machine confined to the language {A, B, C, D, E, F}.
+Java implementation of the Enigma Machine confined to the alphabet {A, B, C, D, E, F}.
