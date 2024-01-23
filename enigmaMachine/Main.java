@@ -24,18 +24,18 @@ class Main
 
 
         //make encryptions here \/ \/ \/
-        char c=machine.encrypt('C');    // FACADE -> CDFDAF
+        char c=machine.encrypt('D');    // FACADE -> CDFDAF
         System.out.println();
-        char d=machine.encrypt('D');
+        char d=machine.encrypt('B');
         System.out.println();
-        char e=machine.encrypt('F');
+        char e=machine.encrypt('D');
         System.out.println();
         char f=machine.encrypt('D');
         System.out.println();
-        char g=machine.encrypt('A');
+        char g=machine.encrypt('D');
         System.out.println();
-        char h=machine.encrypt('F');
+        char h=machine.encrypt('C');
         System.out.println();
-        System.out.println(" final "+c+d+e+f+g+h);//prints sequence of steps for debugging
+        System.out.println(" final "+c+d+e+f+g+h);  //prints sequence of steps for debugging
     }
 }
